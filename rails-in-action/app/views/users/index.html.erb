@@ -1,0 +1,14 @@
+<div class="row">
+  <h2>Users</h2>
+
+  <%@users.each do |user|%>
+      <div>
+        <%=user.email%>
+        <%= link_to('Follow', users_follow_path(:followed_user => user.id))  %>
+      </div>
+  <%end%>
+
+</div>
+<div class="row">
+  <%= will_paginate @users %>
+</div>

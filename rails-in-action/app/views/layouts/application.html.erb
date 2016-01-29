@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RailsInAction</title>
+  <!--Import Google Icon Font-->
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<nav>
+  <div class="nav-wrapper">
+    <ul class="right hide-on-med-and-down">
+      <li>
+        <%= link_to('Home', timeline_index_path)  %>
+      </li>
+
+      <li>
+        <%= link_to('Users', users_index_path)  %>
+      </li>
+
+      <% if user_signed_in? %>
+          <li>
+            <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+          </li>
+      <% else %>
+          <li>
+            <%= link_to('Login', new_user_session_path)  %>
+          </li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
+<div class="container">
+<div class="row">
+  <div class="col s12 orange darken-1"><%= notice %></div>
+  <div class="col s12 deep-orange darken-1"><%= alert %></div>
+</div>
+
+<%= yield %>
+</div>
+
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+
+</body>
+</html>
