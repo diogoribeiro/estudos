@@ -10,11 +10,11 @@ describe CurrencyHelper do
 
     }
 
-    it "should initialize a new default currency helper" do
+    it "should initialize a new PTBr currency helper" do
         expect(currency).to be_an_instance_of CurrencyHelper::PTBr
     end
 
-    it "should initialize a new currency helper with params" do
+    it "should initialize a new US currency helper" do
         expect(currency_en).to be_an_instance_of CurrencyHelper::US
     end
 
